@@ -3,7 +3,7 @@ pipeline {
 stages {
         stage('Checkout') { 
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-user', url: 'https://github.com/devopsdeepdive/maven-web-project.git']]]) 
+                checkout([$class: 'GitSCM', branches: [[name: '*/batch15']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_cred', url: 'https://github.com/devopsdeepdive/maven-web-project.git']]]) 
             }
         }
 		stage('Build') { 
@@ -24,8 +24,8 @@ stages {
 	
 	stage('Deploy') { 
             steps {
-             sshagent(['tomcat_deploy']) {
-		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven_deploy/target/maven-web-application.war ubuntu@44.202.20.125:/opt/apache-tomcat-8.5.84/webapps'   
+             sshagent(['tomcat_server']) {
+		sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven_deploy/target/maven-web-application.war ubuntu@54.242.225.19:/opt/tomcat/apache-tomcat-9.0.74/webapps'   
             }
         }
 	}
