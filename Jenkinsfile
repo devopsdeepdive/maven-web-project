@@ -25,7 +25,7 @@ stages {
 	stage('Deploy'){
 	steps{
 		sshagent(['deploy']) {
-			sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven-web-project/target/*.war ubuntu@ec2-54-198-135-17.compute-1.amazonaws.com://opt/tomcat/webapps/'
+			sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven-web-project/target/*.war ubuntu@ec2-54-198-135-17.compute-1.amazonaws.com:/opt/tomcat/webapps/'
 		}
 	}
 }
