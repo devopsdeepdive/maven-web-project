@@ -29,5 +29,10 @@ stages {
 		}
 	}
 }
+	stage('Notify'){
+		steps{
+			slackSend channel: '#devopsdeepdive_batch17', message: 'service deployed successfully'
+		}
+	}
 	}
 }
