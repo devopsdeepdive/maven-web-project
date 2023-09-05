@@ -20,8 +20,14 @@ stages {
 
 		stage('Test') { 
             steps {
-              sh 'mvn test'
+              sh 'mvn tet'
             }
+	post {
+  failure {
+    echo "Build failed"
+  }
+}
+
         }
 		stage('Package') { 
             steps {
