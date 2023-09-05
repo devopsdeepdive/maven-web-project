@@ -23,6 +23,10 @@ stages {
         }
 	
 	stage('Deploy'){
+		when {
+	  branch 'master'
+		}
+
 	steps{
 		sshagent(['deploy']) {
 			sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven-web-project/target/*.war ubuntu@172.31.38.186:/opt/tomcat/webapps'
