@@ -11,6 +11,12 @@ stages {
               sh 'mvn compile'
             }
         }
+	post {
+  always {
+    echo "Hello world"
+  }
+}
+
 		stage('Test') { 
             steps {
               sh 'mvn test'
