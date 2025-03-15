@@ -6,5 +6,9 @@ stages {
                 checkout([$class: 'GitSCM', branches: [[name: '*/anurag']], extensions: [], userRemoteConfigs: [[credentialsId: 'GITHUB_AUTH', url: 'https://github.com/devopsdeepdive/maven-web-project.git']]]) 
             }
         }
+	stage('Build')
+	   steps {
+		sh 'mvn compile'
+	   }
 	}
 }
