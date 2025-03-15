@@ -21,7 +21,7 @@ stages {
 	}
 	stage('Deploy') {
 	   steps {
-		sh 'echo Deploying.....'
+		sh 'echo Deployingprod.....'
 	   }
 	}
 	}
