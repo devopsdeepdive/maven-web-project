@@ -11,5 +11,15 @@ stages {
 		sh 'mvn compile'
 	   }
 	}
+	stage('Test') {
+	   steps {
+		sh 'mvn test'
+	   }
+	}
+	stage('Deploy') {
+	   steps {
+		sh 'Echo Deploying.....'
+	   }
+	}
 	}
 }
